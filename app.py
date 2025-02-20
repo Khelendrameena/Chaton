@@ -1,11 +1,13 @@
 # app.py
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request, session, redirect, CORS
 from flask_socketio import SocketIO, emit, join_room, leave_room
 import os
 from datetime import datetime
 import random
 
 app = Flask(__name__)
+CORS(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-secret-key')
 socketio = SocketIO(app, cors_allowed_origins="*")
 
