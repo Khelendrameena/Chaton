@@ -1,56 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Chat</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='chat_style_1.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='chat_style_2.css') }}">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+  <title>Random Chat</title>
+  <style>
+    
+  </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="main-chat">
-            <div class="chat-header">
-                <div class="user-info">
-                    <div class="avatar">{{ username[0] | upper }}</div>
-                    <div>
-                        <h2 style="font-size: 16px;">{{ username }}</h2>
-                        <span style="color: #666; font-size: 12px;">Online</span>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-body" id="chatBody">
-                <!-- Messages will be added here dynamically -->
-            </div>
-            <div class="chat-footer">
-
-                <button class="send-button_1"  id="status" onclick="startSearch()">start</button>
-<span class="loader" style="position: relative; top: -15px; left: 20px; display: none;" id="loader"></span>    <h2 style="font-size: 16px; color: white;" id="partner-info"></h2>
-   
-
-</div>
-            <div class="chat-footer">
-                <input type="file" id="fileInput" accept="image/*,video/*" multiple>
-                <button class="attachment-btn" onclick="document.getElementById('fileInput').click()">
-                    📎
-                </button>
-                <div class="input-container">
-                    <input type="text" class="message-input" placeholder="Type a message..." id="messageInput">
-                    <div id="fileIndicator" class="file-indicator"></div>
-                </div>
-                <button class="send-button" onclick="sendMessage()" id="sendBtn">➤</button>
-            </div>
+  <div class="login-container">
+    <h1>Random Chat</h1>
+    <form action="{{ url_for('enter_chat') }}" method="POST" id="chatForm">
+      <input type="text" name="username" placeholder="Enter your nickname" required>
+      
+      <div class="gender-select">
+        <div class="gender-option">
+          <input type="radio" id="male" name="gender" value="male" required>
+          <label for="male">
+            <span class="gender-icon"></span>
+            <span class="gender-text">Male</span>
+          </label>
         </div>
-    </div>
-
-    <!-- Preview Modal -->
-    <div class="modal" id="previewModal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal()">×</button>
-            <div id="modalContent"></div>
+        
+        <div class="gender-option">
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female">
+            <span class="gender-icon"></span>
+            <span class="gender-text">Female</span>
+          </label>
         </div>
-    </div>
-    <script src="{{ url_for('static', filename='chat_script.js') }}"></script>
+      </div>   
+      <div class="error-message" id="errorMessage">Please select your gender</div>
+      <button type="submit">Start Chatting</button>
+    </form>
+  </div>
+<script src="{{ url_for('static', filename='index_script.js') }}"></script>   
 </body>
 </html>
