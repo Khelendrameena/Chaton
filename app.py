@@ -1,5 +1,6 @@
 # app.py
-from flask import Flask, render_template, request, session, redirect, CORS
+from flask import Flask, render_template, request, session, redirect
+from flask_cors import CORS
 from flask_socketio import SocketIO, emit, join_room, leave_room
 import os
 from datetime import datetime
