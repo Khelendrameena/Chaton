@@ -149,6 +149,12 @@ def handle_disconnect():
             del active_chats[partner_id]
         del active_chats[user_id]
 
-if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), allow_unsafe_werkzeug=True)
 
+if __name__ == '__main__':
+    import eventlet
+    import eventlet.wsgi
+
+    port = int(os.environ.get("PORT", 5000))
+    print(f"Starting server on port {port}")
+
+    socketio.run(app, host='0.0.0.0', port=port, debug=True, allow_unsafe_werkzeug=True)
