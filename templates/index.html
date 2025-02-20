@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Random Chat</title>
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0084ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.chat-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+
+.chat-header {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.user-info, .partner-info {
+    margin: 10px 0;
+    font-weight: bold;
+    color: #0084ff;
+}
+
+.status {
+    margin: 10px 0;
+    color: #666;
+}
+
+.button-group {
+    margin-top: 10px;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    background-color: #0084ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.message {
+    margin-bottom: 15px;
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.message.sent {
+    margin-left: auto;
+    background-color: #0084ff;
+    color: white;
+}
+
+.message.received {
+    margin-right: auto;
+    background-color: #f0f2f5;
+}
+
+.message.system {
+    margin: 10px auto;
+    background-color: #fff3cd;
+    color: #856404;
+    text-align: center;
+    max-width: 90%;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 0.9em;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.message.sent .username {
+    color: #fff;
+}
+
+.message.received .username {
+    color: #0084ff;
+}
+
+.timestamp {
+    font-size: 0.8em;
+    color: #666;
+    margin-left: 10px;
+}
+
+.message.sent .timestamp {
+    color: #e4e6eb;
+}
+
+.input-area {
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 10px;
+}
+
+.input-area input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.input-area button {
+    padding: 12px 24px;
+    background-color: #0084ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.input-area button:hover:not(:disabled) {
+    background-color: #0073e6;
+</style>
+</head>
+
+<body>
+  <div class="login-container">
+    <h1>Random Chat</h1>
+    <form action="{{ url_for('enter_chat') }}" method="POST">
+      <input type="text" name="username" placeholder="Enter your nickname" required>
+      <button type="submit">Enter Chat</button>
+    </form>
+  </div>
+</body>
+
+</html>
