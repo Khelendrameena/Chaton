@@ -7,7 +7,9 @@
         const modalContent = document.getElementById('modalContent');
 
 //
-const socket = io("https://chaton-oc40.onrender.com", { transports: ["websocket", "polling"] });
+const socket = io("https://your-app.onrender.com", {
+    transports: ["websocket"]  // Polling Mode को हटा दिया
+});
 
 const statusDiv = document.getElementById('status');  
 
