@@ -52,7 +52,7 @@ socket.on('chat_started', (data) => {
 socket.on('message', function(data) {
   setTimeout(() => {
   addMessage(data.text, data.is_user ? 'sent' : 'received');
-  },1000)
+  },10)
   });
 //
         let selectedFiles = [];
