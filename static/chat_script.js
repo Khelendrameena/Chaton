@@ -7,7 +7,7 @@
         const modalContent = document.getElementById('modalContent');
 
 //
-const socket = io();
+const socket = io("https://chaton-oc40.onrender.com", { transports: ["websocket", "polling"] });
 
 const statusDiv = document.getElementById('status');  
 
