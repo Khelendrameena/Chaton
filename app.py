@@ -20,7 +20,11 @@ user_sid = {}  # {user_id: socket_id} - Track socket IDs for direct messaging
 @app.route('/')
 def index():
     return render_template('index.html')
-
+    
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'robots.txt')
+    
 @app.route('/enter', methods=['POST'])
 def enter_chat():
     username = request.form.get('username')
